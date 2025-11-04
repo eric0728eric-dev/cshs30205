@@ -1,0 +1,27 @@
+# ...existing code...
+import sys
+
+def min_total_wait(times):
+    if not times:
+        return 0
+    times_sorted = sorted(times)
+    total = 0
+    cum = 0
+    for t in times_sorted:
+        cum += t
+        total += cum
+    return total
+
+def main():
+    data = sys.stdin.read().strip().split()
+    if not data:
+        return
+    try:
+        times = list(map(int, data))
+    except ValueError:
+        return
+    print(min_total_wait(times))
+
+if __name__ == "__main__":
+    main()
+# ...existing code...
